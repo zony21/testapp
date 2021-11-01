@@ -1,0 +1,18 @@
+"*":
+  "atom-minify": {}
+  core:
+    disabledPackages: [
+      "react-es7-snippets"
+    ]
+    telemetryConsent: "limited"
+  editor: {}
+  "exception-reporting":
+    userId: "dfbdf0f5-bc87-49cd-b396-c88c48bb4e16"
+  "sass-autocompile": {}
+  "sync-settings":
+    gistId: "12a57d103b39a3096935548113d2b86f"
+    hiddenSettings:
+      _lastBackupTime: "2020-09-06T10:42:07Z"
+    personalAccessToken: "4b08910cee4892c64309396fe91b47b67ddb648d"
+  welcome:
+    showOnStartup: false

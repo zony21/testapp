@@ -1,0 +1,50 @@
+{
+  "_from": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+  "_id": "react-es7-snippets@0.5.3",
+  "_inBundle": false,
+  "_integrity": "sha512-lX+ooGXro+puvEvRGFzzYfW4bshXBfTrdtzqKWMJbwO1pKL1fPx/P2J0lLcxlkdjJ/DQbz/eOJjegJ2S/5x3sw==",
+  "_location": "/react-es7-snippets",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+  "_shasum": "87706dd121f502a722db2fa02c4ed4ae8968a409",
+  "_spec": "https://www.atom.io/api/packages/react-es7-snippets/versions/0.5.3/tarball",
+  "_where": "/private/var/folders/6h/blmjl67s6t35ryprv3sjr5p40000gn/T/apm-install-dir-2021921-4686-1m1km1a.3oxxj",
+  "bugs": {
+    "url": "https://github.com/ngthorg/react-es7-snippets/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "React, Redux and Relay ES7 snippets for atom",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/ngthorg/react-es7-snippets#readme",
+  "keywords": [
+    "react",
+    "redux",
+    "relay",
+    "ES7",
+    "standard",
+    "babel",
+    "snippets"
+  ],
+  "license": "MIT",
+  "name": "react-es7-snippets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngthorg/react-es7-snippets.git"
+  },
+  "version": "0.5.3"
+}
