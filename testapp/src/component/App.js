@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { Container, TextField, Button} from '@mui/material'
+import React, { useReducer, useState } from "react"
+import { Container, TextField, Button } from '@mui/material'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import StyledTableCell from '@mui/material/TableCell'
@@ -8,24 +8,39 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 
+import reducer from '../reducers'
+
 const App = () => {
+  const [state, dispatch] = useReducer(reducer, [])
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
+  const addEvent = e => {
+    e.preventDefault()
+    dispatch({
+      type:'CREATE_EVENT',
+      title,
+      body
+    })
+    setTitle('')
+    setBody('')
+  }
+  console.log({state})
   return (
     <Container>
       <h1>イベント作成フォーム</h1>
       <form>
         <div className="input" style={{ margin: '20px 0' }}>
-          <TextField id="standard-basic" label="タイトル" variant="standard" fullWidth/>
+          <TextField id="standard-basic" label="タイトル" variant="standard" fullWidth value={title} onChange={e => setTitle(e.target.value)} />
         </div>
         <div className="eria" style={{ margin: '20px 0' }}>
           <TextField
             placeholder="ボディー"
             multiline
-            rows={2}
-            maxRows={4}
             fullWidth
+            value={body} onChange={e => setBody(e.target.value)}
           />
         </div>
-        <Button variant="contained">イベントを作成する</Button>
+        <Button variant="contained" onClick={addEvent}>イベントを作成する</Button>
         <Button variant="contained" color="error">全てのイベントを削除する</Button>
       </form>
       <div className="list_wrap">

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const events = (state = [], action) => {
-    switch (action, type) {
+    switch (action.type) {
         case 'CREATE_EVENT':
             const event = { title: action.title, body: action.body }
             const length = state.length
