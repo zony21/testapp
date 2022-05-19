@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 
+import Event from "./Event"
 import reducer from '../reducers'
 
 const App = () => {
@@ -17,14 +18,13 @@ const App = () => {
   const addEvent = e => {
     e.preventDefault()
     dispatch({
-      type:'CREATE_EVENT',
+      type: 'CREATE_EVENT',
       title,
       body
     })
     setTitle('')
     setBody('')
   }
-  console.log({state})
   return (
     <Container>
       <h1>イベント作成フォーム</h1>
@@ -57,6 +57,7 @@ const App = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
+                {state.map((event,index) => (<Event key={index} event={event} dispatch={dispatch} />))}
               </TableBody>
             </Table>
           </TableContainer>
