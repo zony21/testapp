@@ -25,6 +25,12 @@ const App = () => {
     setTitle('')
     setBody('')
   }
+  const deleteAllEvents = e => {
+    e.preventDefault()
+    const result = window.confirm('全てのイベントを削除しますか？')
+    if (result) dispatch({ type: 'DELETE_ALL_EVENTS' })
+  }
+  const unCreatable = title === '' || body === ''
   return (
     <Container>
       <h1>イベント作成フォーム</h1>
@@ -40,8 +46,8 @@ const App = () => {
             value={body} onChange={e => setBody(e.target.value)}
           />
         </div>
-        <Button variant="contained" onClick={addEvent}>イベントを作成する</Button>
-        <Button variant="contained" color="error">全てのイベントを削除する</Button>
+        <Button variant="contained" onClick={addEvent} disabled={unCreatable}>イベントを作成する</Button>
+        <Button variant="contained" color="error" onClick={deleteAllEvents} disabled={state.length  === 0}>全てのイベントを削除する</Button>
       </form>
       <div className="list_wrap">
         <h2>イベント一覧</h2>
@@ -57,7 +63,7 @@ const App = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {state.map((event,index) => (<Event key={index} event={event} dispatch={dispatch} />))}
+                {state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
               </TableBody>
             </Table>
           </TableContainer>

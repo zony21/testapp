@@ -4,10 +4,8 @@ import { TableCell, TableRow, Button } from '@mui/material'
 const Event = ({ event, dispatch }) => {
     const id = event.id
     const handleClickDelete = () => {
-        dispatch({
-            type: 'DELETE_EVENT',
-            id
-        })
+        const result = window.confirm(`ID${id}のイベントを削除しますか？`)
+        if (result) dispatch({ type: 'DELETE_EVENT', id })
     }
     return (
         <TableRow>
