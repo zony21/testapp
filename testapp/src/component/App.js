@@ -1,74 +1,17 @@
-import React, { useReducer, useState } from "react"
-import { Container, TextField, Button } from '@mui/material'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import StyledTableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
+import React, { useReducer } from "react"
+import { Container } from '@mui/material'
 
-import Event from "./Event"
+import EventForm from "./EventForm"
+import Events from "./Events"
 import reducer from '../reducers'
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, [])
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
-  const addEvent = e => {
-    e.preventDefault()
-    dispatch({
-      type: 'CREATE_EVENT',
-      title,
-      body
-    })
-    setTitle('')
-    setBody('')
-  }
-  const deleteAllEvents = e => {
-    e.preventDefault()
-    const result = window.confirm('全てのイベントを削除しますか？')
-    if (result) dispatch({ type: 'DELETE_ALL_EVENTS' })
-  }
-  const unCreatable = title === '' || body === ''
+
   return (
     <Container>
-      <h1>イベント作成フォーム</h1>
-      <form>
-        <div className="input" style={{ margin: '20px 0' }}>
-          <TextField id="standard-basic" label="タイトル" variant="standard" fullWidth value={title} onChange={e => setTitle(e.target.value)} />
-        </div>
-        <div className="eria" style={{ margin: '20px 0' }}>
-          <TextField
-            placeholder="ボディー"
-            multiline
-            fullWidth
-            value={body} onChange={e => setBody(e.target.value)}
-          />
-        </div>
-        <Button variant="contained" onClick={addEvent} disabled={unCreatable}>イベントを作成する</Button>
-        <Button variant="contained" color="error" onClick={deleteAllEvents} disabled={state.length  === 0}>全てのイベントを削除する</Button>
-      </form>
-      <div className="list_wrap">
-        <h2>イベント一覧</h2>
-        <div style={{ width: '100%' }}>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>ID</StyledTableCell>
-                  <StyledTableCell>タイトル</StyledTableCell>
-                  <StyledTableCell>ボディー</StyledTableCell>
-                  <StyledTableCell></StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
-      </div>
+      <EventForm state={state} dispatch={dispatch}/>
+      <Events state={state} dispatch={dispatch}/>
     </Container>
   )
 }
