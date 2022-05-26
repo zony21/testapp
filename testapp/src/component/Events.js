@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Event from "./Event"
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -7,8 +7,10 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
+import AppContext from '../contexts/AppContext'
 
 const Events = ({ state, dispatch }) => {
+    const value = useContext(AppContext)
     return (
         <div className="list_wrap">
             <h2>イベント一覧</h2>
