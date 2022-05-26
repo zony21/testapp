@@ -40,7 +40,7 @@ const EventForm = () => {
                     />
                 </div>
                 <Button variant="contained" onClick={addEvent} disabled={unCreatable}>イベントを作成する</Button>
-                <Button variant="contained" color="error" onClick={deleteAllEvents} disabled={state.length === 0}>全てのイベントを削除する</Button>
+                <Button variant="contained" color="error" onClick={deleteAllEvents} disabled={state.events.length === 0}>全てのイベントを削除する</Button>
             </form>
         </>
     )

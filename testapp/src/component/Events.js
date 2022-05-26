@@ -26,7 +26,7 @@ const Events = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {state.map((event, index) => (<Event key={index} event={event} />))}
+                            {state.events.map((event, index) => (<Event key={index} event={event} />))}
                         </TableBody>
                     </Table>
                 </TableContainer>
