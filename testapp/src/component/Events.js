@@ -9,8 +9,8 @@ import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import AppContext from '../contexts/AppContext'
 
-const Events = ({ state, dispatch }) => {
-    const value = useContext(AppContext)
+const Events = () => {
+    const { state } = useContext(AppContext)
     return (
         <div className="list_wrap">
             <h2>イベント一覧</h2>
@@ -26,7 +26,7 @@ const Events = ({ state, dispatch }) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
+                            {state.map((event, index) => (<Event key={index} event={event} />))}
                         </TableBody>
                     </Table>
                 </TableContainer>
