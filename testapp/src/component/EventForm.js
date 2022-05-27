@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { TextField, Button } from '@mui/material'
-import { CREATE_EVENT, DELETE_ALL_EVENTS } from '../actions'
+import { CREATE_EVENT, DELETE_ALL_EVENTS, ADD_OPERATION_LOG, DELETE_OPERATION_LOGS } from '../actions'
+import { timeCurrentIso8601 } from '../utils'
 
 import AppContext from '../contexts/AppContext'
 
@@ -15,13 +16,27 @@ const EventForm = () => {
             title,
             body
         })
+
+        dispatch({
+            type: ADD_OPERATION_LOG,
+            description: 'イベントを作成しました',
+            
+        })
+
         setTitle('')
         setBody('')
     }
     const deleteAllEvents = e => {
         e.preventDefault()
         const result = window.confirm('全てのイベントを削除しますか？')
-        if (result) dispatch({ type: DELETE_ALL_EVENTS })
+        if (result) {
+            dispatch({ type: DELETE_ALL_EVENTS })
+            dispatch({
+                type: ADD_OPERATION_LOG,
+                description: '全てのイベントを削除しました',
+                operatedAt: timeCurrentIso8601()
+            })
+        }
     }
     const unCreatable = title === '' || body === ''
     return (
