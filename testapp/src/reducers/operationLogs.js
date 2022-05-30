@@ -1,7 +1,6 @@
-import React from 'react'
 import { ADD_OPERATION_LOG, DELETE_OPERATION_LOGS } from '../actions'
 
-const operetionLogs = (state = [], action) => {
+const operationLogs = (state = [], action) => {
     switch (action.type) {
         case ADD_OPERATION_LOG:
             const operetionLog = { description: action.description, operation: action.operation }
@@ -13,4 +12,4 @@ const operetionLogs = (state = [], action) => {
     }
 }
 
-export default operetionLogs
+export default operationLogs
