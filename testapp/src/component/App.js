@@ -3,6 +3,7 @@ import { Container } from '@mui/material'
 
 import EventForm from "./EventForm"
 import Events from "./Events"
+import OperationLogs from "./OperationLogs"
 import reducer from '../reducers'
 import AppContext from "../contexts/AppContext"
 
@@ -18,6 +19,7 @@ const App = () => {
       <Container>
         <EventForm />
         <Events />
+        <OperationLogs />
       </Container>
     </AppContext.Provider>
   )
